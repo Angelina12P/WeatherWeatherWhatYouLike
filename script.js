@@ -1,4 +1,15 @@
+let currentTimestamp = Math.round(Date.now()/1000);
+// 86400 seconds in a day
+let futureDay1 = currentTimestamp + 86400; 
+let futureDay2 = futureDay1 + 86400; 
+let futureDay3 = futureDay2 + 86400;
+let futureDay4 = futureDay3 + 86400;
+let futureDay5 = futureDay4 + 86400;
+
+let wArray = [futureDay1, futureDay2, futureDay3, futureDay4, futureDay5]
+
 let APIKey = "5f06fd7d9130dd36b781c557ed9464e4";
+
 let searchCity = document.getElementById("searchCity");
 // let searchCity = "london";
 let searchButton = document.getElementById("searchButton");
@@ -15,7 +26,6 @@ let searchWeather = (searchCity) => {
         console.log(firstCity.lon);
     
     return fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${firstCity.lat}&lon=${firstCity.lon}&appid=${APIKey}`)
-    
     
 })
 
@@ -36,7 +46,18 @@ let searchWeather = (searchCity) => {
     <p>"Humidity" ${humidity}</p>
     <p>"Wind Speed" ${windSpeed}</p>
     `
+        let lat = weatherData.coord.lat;
+        let lon = weatherData.coord.lon;
+
+        return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`)
+    })
     
+    
+    .then(response => response.json())
+    .then(fiveDayData => {
+        console.log(fiveDayData);
+
+
 })
 };
 
@@ -44,3 +65,7 @@ searchButton.addEventListener("click", () => {
     let searchCity = document.getElementById("searchCity").value;
     searchWeather(searchCity);
 });
+
+
+
+
