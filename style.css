@@ -16,7 +16,7 @@ header {
     padding:20px;
     margin: 20px;
     margin-right:10px;
-    float:left;
+
   }
 
 
@@ -26,7 +26,7 @@ header {
     text-align: center;
     height: 40vh;
     width: 70vw;
-    float:right;
+    left: 800px;;
     margin: 10px;
 }
 #answersBit p{
@@ -40,7 +40,7 @@ header {
     padding: 20px;
     margin:10px;
     text-align: center;
-    float:right;
+
     width: 70vw;
     height:40vh;
     display: grid;

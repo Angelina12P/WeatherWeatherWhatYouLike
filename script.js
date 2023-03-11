@@ -31,14 +31,15 @@ let searchWeather = (searchCity) => {
     console.log(weatherData)
     let cityName = weatherData.city.name;
     let currentTemp = weatherData.list[0].main.temp;
-    // let iconRep = ??? current.weather.icon
+    let iconID = weatherData.list[0].weather[0].icon;
+    console.log(iconID)
     let humidity = weatherData.list[0].main.humidity;
     let windSpeed = weatherData.list[0].wind.speed;
     document.getElementById("answersBit").innerHTML =
     `
     <p><b>City: </b> ${cityName}</p>
     <p><b>Temp: </b> ${currentTemp}</p>
-    <p>not sure </p>
+    <img src="http://openweathermap.org/img/w/${iconID}.png" alt="weather icon}">
     <p><b>Humidity: </b> ${humidity}</p>
     <p><b>Wind Speed:</b> ${windSpeed}</p>
     `
@@ -47,12 +48,14 @@ let searchWeather = (searchCity) => {
         let tomorrowWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === tomorrowDate);
         if (tomorrowWeatherData) {
             let tomorrowTemp = tomorrowWeatherData.main.temp;
+            let tomorrowIconID = tomorrowWeatherData.weather[0].icon;
             let tomorrowHumidity = tomorrowWeatherData.main.humidity;
             let tomorrowWindSpeed = tomorrowWeatherData.wind.speed;
             document.getElementById("column1").innerHTML =
             `
             <h3>Tomorrow</h3>
             <p><b>Temp: </b> ${tomorrowTemp}</p>
+            <img src="http://openweathermap.org/img/w/${tomorrowIconID}.png" alt="weather icon">
             <p><b>Humidity: </b> ${tomorrowHumidity}</p>
             <p><b>Wind Speed:</b> ${tomorrowWindSpeed}</p>
             `;
@@ -60,6 +63,7 @@ let searchWeather = (searchCity) => {
     let dayAfterWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayAfter);
     if (dayAfterWeatherData) {
         let dayAfterTemp = dayAfterWeatherData.main.temp;
+        let dayAfterIconID = dayAfterWeatherData.weather[0].icon;
         let dayAfterHumidity = dayAfterWeatherData.main.humidity;
         let dayAfterWindSpeed = dayAfterWeatherData.wind.speed;
         let dayAfterDayOfWeek = moment(dayAfter).format('dddd');
@@ -67,6 +71,7 @@ let searchWeather = (searchCity) => {
         `
         <h3>${dayAfterDayOfWeek}</h3>
         <p><b>Temp: </b> ${dayAfterTemp}</p>
+        <img src="http://openweathermap.org/img/w/${dayAfterIconID}.png" alt="weather icon">
         <p><b>Humidity: </b> ${dayAfterHumidity}</p>
         <p><b>Wind Speed:</b> ${dayAfterWindSpeed}</p>
         `;
@@ -74,6 +79,7 @@ let searchWeather = (searchCity) => {
     let dayThreeWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayThree);
     if (dayThreeWeatherData) {
         let dayThreeTemp = dayThreeWeatherData.main.temp;
+        let dayThreeIconID = dayThreeWeatherData.weather[0].icon;
         let dayThreeHumidity = dayThreeWeatherData.main.humidity;
         let dayThreeWindSpeed = dayThreeWeatherData.wind.speed;
         let dayThreeDayOfWeek = moment(dayThree).format('dddd');
@@ -81,6 +87,7 @@ let searchWeather = (searchCity) => {
         `
         <h3>${dayThreeDayOfWeek}</h3>
         <p><b>Temp: </b> ${dayThreeTemp}</p>
+        <img src="http://openweathermap.org/img/w/${dayThreeIconID}.png" alt="weather icon">
         <p><b>Humidity: </b> ${dayThreeHumidity}</p>
         <p><b>Wind Speed:</b> ${dayThreeWindSpeed}</p>
         `;
@@ -88,6 +95,7 @@ let searchWeather = (searchCity) => {
     let dayFourWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayFour);
     if (dayFourWeatherData) {
         let dayFourTemp = dayFourWeatherData.main.temp;
+        let dayFourIconID = dayFourWeatherData.weather[0].icon;
         let dayFourHumidity = dayFourWeatherData.main.humidity;
         let dayFourWindSpeed = dayFourWeatherData.wind.speed;
         let dayFourDayOfWeek = moment(dayFour).format('dddd');
@@ -95,6 +103,7 @@ let searchWeather = (searchCity) => {
         `
         <h3>${dayFourDayOfWeek}</h3>
         <p><b>Temp: </b> ${dayFourTemp}</p>
+        <img src="http://openweathermap.org/img/w/${dayFourIconID}.png" alt="weather icon">
         <p><b>Humidity: </b> ${dayFourHumidity}</p>
         <p><b>Wind Speed:</b> ${dayFourWindSpeed}</p>
         `;
@@ -102,6 +111,7 @@ let searchWeather = (searchCity) => {
     let dayFiveWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayFive);
     if (dayFiveWeatherData) {
         let dayFiveTemp = dayFiveWeatherData.main.temp;
+        let dayFiveIconID = dayFiveWeatherData.weather[0].icon;
         let dayFiveHumidity = dayFiveWeatherData.main.humidity;
         let dayFiveWindSpeed = dayFiveWeatherData.wind.speed;
         let dayFiveDayOfWeek = moment(dayFive).format('dddd');
@@ -109,8 +119,13 @@ let searchWeather = (searchCity) => {
         `
         <h3>${dayFiveDayOfWeek}</h3>
         <p><b>Temp: </b> ${dayFiveTemp}</p>
+        <img src="http://openweathermap.org/img/w/${dayFiveIconID}.png" alt="weather icon">
         <p><b>Humidity: </b> ${dayFiveHumidity}</p>
         <p><b>Wind Speed:</b> ${dayFiveWindSpeed}</p>
         `;
         
         }}}}}})}
+
+
+        // search history 
+
