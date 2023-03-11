@@ -1,11 +1,4 @@
-let currentTimestamp = Math.round(Date.now()/1000);
-// 86400 seconds in a day
-let futureDay1 = currentTimestamp + 86400; 
-let futureDay2 = futureDay1 + 86400; 
-let futureDay3 = futureDay2 + 86400;
-let futureDay4 = futureDay3 + 86400;
-let futureDay5 = futureDay4 + 86400;
-let wArray = [futureDay1, futureDay2, futureDay3, futureDay4, futureDay5]
+
 
 // let date = moment(day.dt).format("ddd, MMMM D");
 
@@ -53,19 +46,46 @@ let searchWeather = (searchCity) => {
     <p><b>Wind Speed:</b> ${windSpeed}</p>
     `
         let lat = weatherData.coord.lat;
+        console.log(lat)
         let lon = weatherData.coord.lon;
 
-        return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`)
+
+
+        const currentTimestamp = Math.round(Date.now()/1000);
+        // 86400 seconds in a day
+        let futureDay1 = currentTimestamp + 86400; 
+        let futureDay2 = futureDay1 + 86400; 
+        let futureDay3 = futureDay2 + 86400;
+        let futureDay4 = futureDay3 + 86400;
+        let futureDay5 = futureDay4 + 86400;
+        let wArray = [futureDay1, futureDay2, futureDay3, futureDay4, futureDay5]
+
+
+
+        function fiveDays(wArray) {
+            for (let i = 0; i < wArray.length; i++) {
+              const element = wArray[i];
+              console.log(element);
+            }
+          }
+          
+          fiveDays(wArray);
+             
+        
+        // return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&dt=${wArray}&appid=${APIKey}`)
+        
     })
     
-    
-    .then(response => response.json())
-    .then(fiveDayData => {
-        console.log(fiveDayData);
+    // .then(response => response.json())
+    // console.log(response)
+    // .then(fiveDayData => {
+    //     console.log(fiveDayData);
+        
+      
 
-
-})
-};
+}
+// })
+// };
 
 
 
