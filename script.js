@@ -1,9 +1,9 @@
-// let date = moment(day.dt).format("ddd, MMMM D");
-
 let APIKey = "5f06fd7d9130dd36b781c557ed9464e4";
 
 let searchButton = document.getElementById("searchButton");
 
+
+// ways to start the weather search, input and prev history input 
 const form = document.querySelector("form");
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -13,9 +13,12 @@ form.addEventListener("submit", e => {
   let prevSearches = JSON.parse(localStorage.getItem('searchHistory'));
   prevSearches.push(searchCity);
   localStorage.setItem('searchHistory', JSON.stringify(prevSearches));
-  
+//   making button work for prev items 
   let updateSearchHistory = document.getElementById('prevSearches')
-  updateSearchHistory.innerHTML = prevSearches.map(city => `<button>${city}</button>`);
+  updateSearchHistory.innerHTML = prevSearches.map(city => `<button>${city}</button>`)
+  updateSearchHistory.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      searchWeather(button.innerText)})});
 })
 
 
@@ -43,14 +46,15 @@ let searchWeather = (searchCity) => {
     let humidity = weatherData.list[0].main.humidity;
     let windSpeed = weatherData.list[0].wind.speed;
     document.getElementById("answersBit").innerHTML =
-    `
+    `<p> </p>
+    <p> </p>
     <p><b>City: </b> ${cityName}</p>
     <p><b>Temp: </b> ${currentTemp}</p>
     <img src="http://openweathermap.org/img/w/${iconID}.png" alt="weather icon}">
     <p><b>Humidity: </b> ${humidity}</p>
     <p><b>Wind Speed:</b> ${windSpeed}</p>
     `
-     
+    //  next 5 days added to separate section 
     let tomorrowDate = moment().add(1, 'days').format('YYYY-MM-DD');
         let tomorrowWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === tomorrowDate);
         if (tomorrowWeatherData) {
@@ -134,5 +138,4 @@ let searchWeather = (searchCity) => {
         }}}}}})}
 
 
-        // search history 
 

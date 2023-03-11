@@ -1,71 +1,85 @@
 header {
-    background-color: rgb(14, 14, 72);
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  background-image: linear-gradient(to right, #3360b9, #210c4f 60%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
 
 #searchBitBox {
-    background-color: rgb(176, 232, 176);
-    padding: 20px;
-    text-align: center;
-    height: 80vh;
-    width: 25vw;
-    border: black solid 1px!important;
-    padding:20px;
-    margin: 20px;
-    margin-right:10px;
-    float:left;
-    display:block;
-  }
+  padding: 20px;
+  text-align: center;
+  height: 80vh;
+  width: 25vw;
+  padding: 20px;
+  margin: 20px;
+  margin-right: 10px;
+  float: left;
+  display: block;
+}
+#searchButton {
+  background-color: #5098e6;
+}
 
+#prevSearches button {
+  width: 100%;
+  background-color: #aeaeaf;
+  border: none;
+  height: 38px;
+}
+
+#prevSearches button::first-letter{
+  text-transform:capitalize;
+}
 
 #answersBit {
-    background-color: purple;
-    padding: 20px;
-    text-align: center;
-    height: 40vh;
-    width: 70vw;
-    float:right;
-    margin: 10px;
-    display:block;
+  border: black solid 1px;
+  padding: 20px;
+  text-align: start;
+  height: 40vh;
+  width: 70vw;
+  float: right;
+  margin: 10px;
+  display: block;
 }
-#answersBit p{
-    font-size:larger;
-    background-color: aqua;
+#answersBit p {
+  font-size:x-large;
 }
-  
+#answersBit img{
+  position: absolute;
+  right: 450px;
+  bottom: 400px;
+  height: 200px;
+  width: 200px;
+}
+
 #futureBit {
-    background-color: pink;
-    display:block;
-    padding: 20px;
-    margin:10px;
-    text-align: center;
-    float:right;
-    width: 70vw;
-    height:40vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 50px 1fr;
-    grid-template-areas: 
+  display: block;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  float: right;
+  width: 70vw;
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 1fr;
+  grid-gap: 10px;
+  grid-template-areas:
     "Ti Ti Ti Ti Ti"
     "c1 c2 c3 c4 c5";
 }
-#futureBit h1{
-    grid-area: Ti;
+#futureBit h2 {
+  grid-area: Ti;
 }
-.dayBox{
-    position: relative;
-    background-color: grey;
-    height:25vh;
-    width:12vw;
-    padding: 10px;
-    margin: 10px;
+.dayBox {
+  position: relative;
+  color: azure;
+  background-color: #2d3e51;
+  height: 30vh;
+  width: 12vw;
+  padding: 5px;
+  margin: 10px;
+  font-size: small;
 }
 
-#column1{grid-area: c1;}
-#column2{grid-area: c2;}
-#column3{grid-area: c3;}
-#column4{grid-area: c4;}
-#column5{grid-area: c5;}
+#column1 {grid-area: c1;}#column2 {grid-area: c2;}#column3 {grid-area: c3;}#column4 {grid-area: c4;}#column5 {grid-area: c5;}
