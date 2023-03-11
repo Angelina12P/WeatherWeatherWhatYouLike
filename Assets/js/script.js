@@ -10,9 +10,13 @@ form.addEventListener("submit", e => {
   const searchCity = document.getElementById("searchCity").value;
   searchWeather(searchCity);
 
-  let prevSearches = JSON.parse(localStorage.getItem('searchHistory'));
+  let prevSearches = JSON.parse(localStorage.getItem('prevSearches'));
+  if (!prevSearches) {
+    prevSearches = [];
+  }
   prevSearches.push(searchCity);
-  localStorage.setItem('searchHistory', JSON.stringify(prevSearches));
+
+  localStorage.setItem('prevSearches', JSON.stringify(prevSearches));
 //   making button work for prev items 
   let updateSearchHistory = document.getElementById('prevSearches')
   updateSearchHistory.innerHTML = prevSearches.map(city => `<button>${city}</button>`)
