@@ -55,8 +55,62 @@ let searchWeather = (searchCity) => {
             <p><b>Temp: </b> ${tomorrowTemp}</p>
             <p><b>Humidity: </b> ${tomorrowHumidity}</p>
             <p><b>Wind Speed:</b> ${tomorrowWindSpeed}</p>
-            `
-
-
-    
-        }})}
+            `;
+    let dayAfter = moment().add(2, 'days').format('YYYY-MM-DD');
+    let dayAfterWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayAfter);
+    if (dayAfterWeatherData) {
+        let dayAfterTemp = dayAfterWeatherData.main.temp;
+        let dayAfterHumidity = dayAfterWeatherData.main.humidity;
+        let dayAfterWindSpeed = dayAfterWeatherData.wind.speed;
+        let dayAfterDayOfWeek = moment(dayAfter).format('dddd');
+        document.getElementById("column2").innerHTML =
+        `
+        <h3>${dayAfterDayOfWeek}</h3>
+        <p><b>Temp: </b> ${dayAfterTemp}</p>
+        <p><b>Humidity: </b> ${dayAfterHumidity}</p>
+        <p><b>Wind Speed:</b> ${dayAfterWindSpeed}</p>
+        `;
+    let dayThree = moment().add(3, 'days').format('YYYY-MM-DD');
+    let dayThreeWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayThree);
+    if (dayThreeWeatherData) {
+        let dayThreeTemp = dayThreeWeatherData.main.temp;
+        let dayThreeHumidity = dayThreeWeatherData.main.humidity;
+        let dayThreeWindSpeed = dayThreeWeatherData.wind.speed;
+        let dayThreeDayOfWeek = moment(dayThree).format('dddd');
+        document.getElementById("column3").innerHTML =
+        `
+        <h3>${dayThreeDayOfWeek}</h3>
+        <p><b>Temp: </b> ${dayThreeTemp}</p>
+        <p><b>Humidity: </b> ${dayThreeHumidity}</p>
+        <p><b>Wind Speed:</b> ${dayThreeWindSpeed}</p>
+        `;
+    let dayFour = moment().add(4, 'days').format('YYYY-MM-DD');
+    let dayFourWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayFour);
+    if (dayFourWeatherData) {
+        let dayFourTemp = dayFourWeatherData.main.temp;
+        let dayFourHumidity = dayFourWeatherData.main.humidity;
+        let dayFourWindSpeed = dayFourWeatherData.wind.speed;
+        let dayFourDayOfWeek = moment(dayFour).format('dddd');
+        document.getElementById("column4").innerHTML =
+        `
+        <h3>${dayFourDayOfWeek}</h3>
+        <p><b>Temp: </b> ${dayFourTemp}</p>
+        <p><b>Humidity: </b> ${dayFourHumidity}</p>
+        <p><b>Wind Speed:</b> ${dayFourWindSpeed}</p>
+        `;
+    let dayFive = moment().add(5, 'days').format('YYYY-MM-DD');
+    let dayFiveWeatherData = weatherData.list.find(weather => moment.unix(weather.dt).format('YYYY-MM-DD') === dayFive);
+    if (dayFiveWeatherData) {
+        let dayFiveTemp = dayFiveWeatherData.main.temp;
+        let dayFiveHumidity = dayFiveWeatherData.main.humidity;
+        let dayFiveWindSpeed = dayFiveWeatherData.wind.speed;
+        let dayFiveDayOfWeek = moment(dayFive).format('dddd');
+        document.getElementById("column5").innerHTML =
+        `
+        <h3>${dayFiveDayOfWeek}</h3>
+        <p><b>Temp: </b> ${dayFiveTemp}</p>
+        <p><b>Humidity: </b> ${dayFiveHumidity}</p>
+        <p><b>Wind Speed:</b> ${dayFiveWindSpeed}</p>
+        `;
+        
+        }}}}}})}
