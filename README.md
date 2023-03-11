@@ -22,6 +22,7 @@ a weather dashboard with form inputs. When a user searches for a city they are p
 They are also presented with a 5-day forecast that displays the same as above.
 
 Screenshot of working application: 
+![Dashboard Spec](https://user-images.githubusercontent.com/117308737/224503252-8fd1f198-d98e-4dc2-bf91-b168f483a9aa.png)
 
 URL of deployed application: 
 
