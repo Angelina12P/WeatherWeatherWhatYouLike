@@ -5,16 +5,22 @@ let futureDay2 = futureDay1 + 86400;
 let futureDay3 = futureDay2 + 86400;
 let futureDay4 = futureDay3 + 86400;
 let futureDay5 = futureDay4 + 86400;
-
 let wArray = [futureDay1, futureDay2, futureDay3, futureDay4, futureDay5]
+
+// let date = moment(day.dt).format("ddd, MMMM D");
 
 let APIKey = "5f06fd7d9130dd36b781c557ed9464e4";
 
 let searchCity = document.getElementById("searchCity");
-// let searchCity = "london";
 let searchButton = document.getElementById("searchButton");
 
-// eventlistener event.target 
+const form = document.querySelector("form");
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const searchCity = document.getElementById("searchCity").value;
+  searchWeather(searchCity);
+});
+
 
 let searchWeather = (searchCity) => {
    
@@ -40,11 +46,11 @@ let searchWeather = (searchCity) => {
 
     document.getElementById("answersBit").innerHTML =
     `
-    <p>"City" ${cityName}</p>
-    <p>"Temp" ${currentTemp}</p>
-    // <p>not sure </p>
-    <p>"Humidity" ${humidity}</p>
-    <p>"Wind Speed" ${windSpeed}</p>
+    <p><b>City: </b> ${cityName}</p>
+    <p><b>Temp: </b> ${currentTemp}</p>
+    <p>not sure </p>
+    <p><b>Humidity: </b> ${humidity}</p>
+    <p><b>Wind Speed:</b> ${windSpeed}</p>
     `
         let lat = weatherData.coord.lat;
         let lon = weatherData.coord.lon;
@@ -61,10 +67,7 @@ let searchWeather = (searchCity) => {
 })
 };
 
-searchButton.addEventListener("click", () => {
-    let searchCity = document.getElementById("searchCity").value;
-    searchWeather(searchCity);
-});
+
 
 
 
