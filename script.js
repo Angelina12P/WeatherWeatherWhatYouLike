@@ -2,7 +2,6 @@
 
 let APIKey = "5f06fd7d9130dd36b781c557ed9464e4";
 
-let searchCity = document.getElementById("searchCity");
 let searchButton = document.getElementById("searchButton");
 
 const form = document.querySelector("form");
@@ -10,7 +9,15 @@ form.addEventListener("submit", e => {
   e.preventDefault();
   const searchCity = document.getElementById("searchCity").value;
   searchWeather(searchCity);
-});
+
+  let prevSearches = JSON.parse(localStorage.getItem('searchHistory'));
+  prevSearches.push(searchCity);
+  localStorage.setItem('searchHistory', JSON.stringify(prevSearches));
+  
+  let updateSearchHistory = document.getElementById('prevSearches')
+  updateSearchHistory.innerHTML = prevSearches.map(city => `<button>${city}</button>`);
+})
+
 
 
 let searchWeather = (searchCity) => {
